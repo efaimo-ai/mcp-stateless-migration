@@ -52,11 +52,11 @@ grade A (100)   0 errors  0 warnings  0 info
 
 $ npx efaimo weigh ./mcp-stateless-migration
   skill                        metadata      body  lines  refs
-  mcp-stateless-migration           104     1,173     95  3 files 3,139
+  mcp-stateless-migration           104     1,240     98  3 files 3,139
 ```
 
 104 tokens sit in your context at all times, which is what every installed
-skill costs you whether or not you use it. The 1,173 token body loads only when
+skill costs you whether or not you use it. The 1,240 token body loads only when
 the skill triggers, and the 3,139 tokens of reference material only when it is
 actually read. Re-run both commands yourself; that is the point of them.
 

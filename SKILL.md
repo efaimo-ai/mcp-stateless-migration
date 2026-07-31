@@ -44,9 +44,12 @@ Ordered by what blocks the rest. Full detail per item, with the shapes and the
 SEP links, is in `references/changes.md`.
 
 1. **Upgrade the SDK first.** TypeScript `@modelcontextprotocol/server` 2.x,
-   Python `mcp` 2.x. The 2.x lines implement `server/discover`, `resultType`
-   and the cache fields for you, which closes most of the list without hand
-   written code. Do this before anything below.
+   Python `mcp` 2.x; both cut 2.0.0 on 2026-07-27, the day before the spec
+   published. The 2.x lines implement `server/discover`, `resultType` and the
+   cache fields for you, which closes most of the list without hand written
+   code. On TypeScript, `npx @modelcontextprotocol/codemod` rewrites the v1
+   call sites to v2 for you. Do this before anything below: diff, codemod,
+   re-check.
 2. **Answer requests with no `initialize`.** Every request now carries
    `_meta["io.modelcontextprotocol/protocolVersion"]` and
    `_meta["io.modelcontextprotocol/clientCapabilities"]`. Drop the handshake
