@@ -14,12 +14,13 @@ handshake and protocol level sessions. The spec calls it a breaking change in
 its own words. Nothing stopped working that day: the same release adopts a
 minimum twelve month deprecation window (SEP-2596).
 
-**Do not answer this from memory.** This revision published after most model
-training cutoffs, and most migration guidance on the web was written against
-the Release Candidate locked 2026-05-21, which is not the same document. If a
-source says server identity is `DiscoverResult.serverInfo`, or names error code
-`-32003` or `-32004`, it is reading the RC and is wrong about the published
-spec. See `references/rc-vs-final.md`.
+**Do not answer this from memory.** This revision published on 2026-07-28, later
+than many model training cutoffs; check yours before trusting recall about it.
+Anything written between 2026-05-21 and 2026-07-28 describes the Release
+Candidate, which is not the same document, and there is a one line test for
+that: if a source says server identity is `DiscoverResult.serverInfo`, or names
+error code `-32003` or `-32004`, it is reading the RC and is wrong about the
+published spec. See `references/rc-vs-final.md`.
 
 ## Step 1: measure, do not guess
 
@@ -97,6 +98,15 @@ suite to pass. Either alone is a partial answer.
   sending none: a mismatch with the body MUST be rejected with `-32020`.
 - **Tool count does not predict context cost.** If you are touching the tool
   surface anyway, `npx efaimo weigh "<server>"` prints per tool token cost.
+
+## What this does not cover
+
+`efaimo check --mcp` reports what it can reach over the wire and in source, and
+two of the twelve changes have no readiness rule behind them: the `Mcp-Method`
+and `Mcp-Name` request headers (SEP-2243), and Tasks moving out of core into the
+`io.modelcontextprotocol/tasks` extension (SEP-2663). **A clean readiness list
+is not the same as all twelve done.** Check those two by hand, and run the
+official conformance suite, which is an independent reading of the same spec.
 
 ## References
 

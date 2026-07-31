@@ -3,22 +3,29 @@
 Read this before trusting any MCP migration guide dated before 2026-07-28.
 
 The Release Candidate locked on 2026-05-21. The final published on 2026-07-28.
-Most of the migration writing on the web, and most tooling built during that
-window, was written against the RC. The two are not the same document.
+Anything written or built in those 68 days describes the RC, and the two are
+not the same document.
 
-Reproduce this yourself:
+Reproduce the whole delta yourself, in four commands:
 
 ```bash
-# the RC kept it under draft/, the final gave it a dated home
+# the RC kept it under draft/; the final gave it a dated home
 curl -s https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/2026-07-28-RC/schema/draft/schema.ts -o rc.ts
 curl -s https://raw.githubusercontent.com/modelcontextprotocol/modelcontextprotocol/2026-07-28/schema/2026-07-28/schema.ts -o final.ts
-# normalize the docs reorg, which rewrote every spec link, or it drowns the diff
-sed -i 's|/specification/draft/|/specification/2026-07-28/|g' rc.ts
-diff -u rc.ts final.ts | less
+
+# normalize the docs reorg, which rewrote every spec link, or it drowns the diff.
+# no `sed -i` here: BSD/macOS sed requires an argument to -i and this would fail.
+sed 's|/specification/draft/|/specification/2026-07-28/|g' rc.ts > rc-normalized.ts
+
+git diff --no-index --stat rc-normalized.ts final.ts   # 209 insertions, 87 deletions
+git diff --no-index rc-normalized.ts final.ts | less   # and here is what moved
 ```
 
-393 commits separate the tags. With the link rewrite normalized away, the
-normative schema still moves 209 lines in and 87 out.
+The tags are 393 commits apart, which you can confirm without cloning:
+
+```bash
+gh api repos/modelcontextprotocol/modelcontextprotocol/compare/2026-07-28-RC...2026-07-28 --jq .total_commits
+```
 
 ## The four that change working code
 
@@ -29,7 +36,7 @@ The published spec removed it and moved identity into
 `_meta["io.modelcontextprotocol/serverInfo"]`, where it is **optional**.
 
 ```jsonc
-// RC, and every guide written before 2026-07-28
+// RC, and anything reading it
 { "supportedVersions": ["..."], "serverInfo": { "name": "x" } }
 
 // published 2026-07-28

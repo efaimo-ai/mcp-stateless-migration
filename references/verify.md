@@ -71,9 +71,13 @@ because the tool surface is already open in front of you:
 npx efaimo weigh "npx -y <the-server>"
 ```
 
-Tool count does not predict cost. Two servers with the same number of tools can
-differ fivefold, and the difference is almost always description and schema
-weight rather than the number of entries.
+Tool count does not predict cost, and the gap is not small. In a measured
+loadout of eight real servers, `notion-mcp-server` and `@playwright/mcp` both
+expose exactly 24 tools and cost 17,218 and 3,453 tokens: a factor of five for
+the same tool count. The difference is almost always description and schema
+weight rather than the number of entries. Version pins and a per row reproduce
+command are in
+<https://github.com/efaimo-ai/efaimo/blob/main/research/mcp-stack-cost/REPORT.md>.
 
 ## A note on trusting green
 

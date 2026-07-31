@@ -5,14 +5,23 @@ published on **2026-07-28**.
 
 ## Why a skill and not a blog post
 
-The revision published on 2026-07-28. That is after the training cutoff of the
-models doing the migration, so a coding agent asked to "make this server
-2026-07-28 ready" is working from the old protocol or from guesses. Worse, most
-migration writing on the web was produced during the Release Candidate window
-that ran from 2026-05-21, and the RC is not the published spec: server identity
-moved, `DiscoverResult` became cacheable, and three error codes were
-renumbered. Guidance that names `DiscoverResult.serverInfo` or error `-32003`
-is reading the RC.
+The revision published on 2026-07-28, later than many model training cutoffs, so
+a coding agent asked to "make this server 2026-07-28 ready" is working from the
+old protocol or from guesses.
+
+There is a second trap underneath that one. For the 68 days between the Release
+Candidate locking on 2026-05-21 and the spec publishing, the RC was the only
+thing there was to read, and it is not the published spec: server identity
+moved into `_meta`, `DiscoverResult` became cacheable, and three error codes
+were renumbered. You do not have to take that on trust, and you do not need a
+survey of the internet to apply it. It is a one line test on any source you are
+about to follow: if it names `DiscoverResult.serverInfo`, or error `-32003` or
+`-32004`, it is reading the RC.
+
+We know the trap is real because we fell into it. efaimo's own readiness rules
+were written against the RC, and for four days after the spec published they
+reported "identity unknown" for exactly the servers that had finished
+migrating. The fix, and the diff that found it, are what this skill packages.
 
 This skill carries the published shapes, the deltas from the RC, and the two
 commands that prove the migration landed.
@@ -52,14 +61,24 @@ grade A (100)   0 errors  0 warnings  0 info
 
 $ npx efaimo weigh ./mcp-stateless-migration
   skill                        metadata      body  lines  refs
-  mcp-stateless-migration           104     1,240     98  3 files 3,139
+  mcp-stateless-migration           104     1,397    108  3 files 3,305
 ```
 
 104 tokens sit in your context at all times, which is what every installed
-skill costs you whether or not you use it. The 1,240 token body loads only when
-the skill triggers, and the 3,139 tokens of reference material only when it is
-actually read. Re-run both commands yourself; that is the point of them.
+skill costs you whether or not you use it. The 1,397 token body loads only when
+the skill triggers, and the 3,305 tokens of reference material only when it is
+actually read. Those are a measurement of the commit you are reading, not a
+promise about the next one: re-run both commands yourself, which is the point
+of quoting them at all.
 
-## Licence
+## Scope
 
-Apache-2.0.
+This skill tells you what to change and how to prove it landed. It does not
+migrate the code for you, and a clean `efaimo` readiness list is not the same as
+all twelve changes done: two of them (the `Mcp-Method` / `Mcp-Name` headers, and
+Tasks moving to an extension) have no readiness rule behind them and need
+checking by hand. `SKILL.md` says so where an agent will read it.
+
+## License
+
+Apache-2.0. See [LICENSE](./LICENSE).
