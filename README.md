@@ -45,7 +45,7 @@ git clone https://github.com/efaimo-ai/mcp-stateless-migration \
 | file | loaded | contents |
 |---|---|---|
 | `SKILL.md` | on trigger | the three step procedure: measure, change, prove |
-| `references/changes.md` | on demand | all twelve changes with their SEP or PR, and the shapes to emit |
+| `references/changes.md` | on demand | all thirteen changes with their SEP or PR, and the shapes to emit |
 | `references/rc-vs-final.md` | on demand | what moved between the locked RC and the published spec |
 | `references/verify.md` | on demand | how to prove it landed, and what a passing suite still misses |
 
@@ -75,7 +75,7 @@ of quoting them at all.
 
 This skill tells you what to change and how to prove it landed. It does not
 migrate the code for you, and a clean `efaimo` readiness list is not the same as
-all twelve changes done: two of them (the `Mcp-Method` / `Mcp-Name` headers, and
+all thirteen changes done: two of them (the `Mcp-Method` / `Mcp-Name` headers, and
 Tasks moving to an extension) have no readiness rule behind them and need
 checking by hand. `SKILL.md` says so where an agent will read it.
 

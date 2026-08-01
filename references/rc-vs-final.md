@@ -65,7 +65,18 @@ here, and most checkers do not look.
 |---|---|---|
 | MissingRequiredClientCapability | `-32003` | `-32021` |
 | UnsupportedProtocolVersion | `-32004` | `-32022` |
-| HeaderMismatch | did not exist | `-32020` |
+| HeaderMismatch | `-32001`, in transport prose only | `-32020`, and now in the schema |
+
+This table said HeaderMismatch "did not exist" in the RC, which was wrong in a
+way worth naming: it existed at `-32001` in the transport prose and was absent
+only from the RC's `schema.ts`. The changelog is explicit that all three moved
+together: "Renumber the error codes introduced in this draft accordingly -
+`HeaderMismatch` `-32001` -> `-32020`, `MissingRequiredClientCapability`
+`-32003` -> `-32021`, `UnsupportedProtocolVersion` `-32004` -> `-32022`", and
+separately that `HeaderMismatchError` was added to the schema, "which
+previously existed only in transport prose". A team told the code "did not
+exist" would leave a server returning `-32001` alone. The renumbering is
+exactly the case they need to act on.
 
 Also: `-32002` (resource not found) is retired in favour of the standard
 `-32602`, and the spec promises it will never be reused.

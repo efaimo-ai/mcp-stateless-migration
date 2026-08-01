@@ -1,4 +1,12 @@
-# The twelve changes
+# The thirteen changes
+
+A curated list of the changes that break working code, not the changelog's own
+enumeration (it counts differently, and splits major from minor). The number in
+this heading is the number of rows in the tables below; if you add a row,
+change it. It said twelve until 2026-08-02, when the row replacing the HTTP GET
+endpoint and `resources/subscribe` with `subscriptions/listen` turned out to be
+missing, which is a breaking wire change and exactly the kind this file exists
+to list.
 
 Every row links the pull request that made it. Verified against
 `schema/2026-07-28/schema.ts` at tag `2026-07-28` in
@@ -13,6 +21,7 @@ Link form: `https://github.com/modelcontextprotocol/modelcontextprotocol/pull/<n
 | `initialize`, `notifications/initialized` | Every request carries its own protocol version and client capabilities in `_meta`. | 2575 |
 | `Mcp-Session-Id`, protocol level sessions | Cross call state becomes server minted handles, passed back as ordinary tool arguments. | 2567 |
 | `Last-Event-ID`, SSE resumability | A broken response stream loses the in flight request. Clients re-issue it as a new one. | 2575 |
+| The HTTP GET endpoint, `resources/subscribe`, `resources/unsubscribe` | Replaced by `subscriptions/listen`: one long lived POST response stream carrying the change notifications a client opted into. A server that still exposes GET for notifications, or answers `resources/subscribe`, is talking to nobody. | 2575 |
 | `ping`, `logging/setLevel`, `notifications/roots/list_changed` | Log level moves per request into `_meta["io.modelcontextprotocol/logLevel"]`. | 2575 |
 
 ## Added

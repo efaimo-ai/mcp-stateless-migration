@@ -102,15 +102,15 @@ suite to pass. Either alone is a partial answer.
 ## What this does not cover
 
 `efaimo check --mcp` reports what it can reach over the wire and in source, and
-two of the twelve changes have no readiness rule behind them: the `Mcp-Method`
+two of the thirteen changes have no readiness rule behind them: the `Mcp-Method`
 and `Mcp-Name` request headers (SEP-2243), and Tasks moving out of core into the
 `io.modelcontextprotocol/tasks` extension (SEP-2663). **A clean readiness list
-is not the same as all twelve done.** Check those two by hand, and run the
+is not the same as all thirteen done.** Check those two by hand, and run the
 official conformance suite, which is an independent reading of the same spec.
 
 ## References
 
-- `references/changes.md`: all twelve changes, each with its SEP or PR.
+- `references/changes.md`: all thirteen changes, each with its SEP or PR.
 - `references/rc-vs-final.md`: what moved between the locked RC and the
   published spec. Read this before trusting any guide written before 2026-07-28.
 - `references/verify.md`: how to prove the migration landed.
