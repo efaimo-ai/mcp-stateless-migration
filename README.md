@@ -56,17 +56,35 @@ tool this skill tells you to run:
 
 ```
 $ npx efaimo check --skill ./mcp-stateless-migration
+efaimo v0.1.0
+check skill  mcp-stateless-migration
 grade A (100)   0 errors  0 warnings  0 info
+
   no findings. clean.
 
+rules: https://github.com/efaimo-ai/efaimo/blob/main/docs/RULES.md
+
 $ npx efaimo weigh ./mcp-stateless-migration
+efaimo v0.1.0
   skill                        metadata      body  lines  refs
-  mcp-stateless-migration           104     1,397    108  3 files 3,305
+  mcp-stateless-migration           104     1,397    108  3 files 3,685
+
+totals: metadata 104 (always loaded) | body 1,397 (on trigger) | referenced 3,685 (on demand)
+
+note: metadata loads at session start for every installed skill; body loads on trigger; referenced files load on demand
+note: token counts are o200k_base estimates (see docs/METHODOLOGY.md)
 ```
+
+Captured verbatim from `efaimo@0.1.0` on 2026-08-02. The one edit: the
+`weigh skills` header line is removed, because it prints this machine's
+absolute path. (Until 2026-08-02 this section quoted a reference count of
+3,305 from the commit before `references/changes.md` gained its thirteenth
+change: the numbers had outlived the measurement by one commit, in the README
+of a brand whose product exists to catch exactly that.)
 
 104 tokens sit in your context at all times, which is what every installed
 skill costs you whether or not you use it. The 1,397 token body loads only when
-the skill triggers, and the 3,305 tokens of reference material only when it is
+the skill triggers, and the 3,685 tokens of reference material only when it is
 actually read. Those are a measurement of the commit you are reading, not a
 promise about the next one: re-run both commands yourself, which is the point
 of quoting them at all.
