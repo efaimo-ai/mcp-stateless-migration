@@ -36,7 +36,7 @@ RC-to-final diff yourself.
 Copy the directory into your skills location, for example:
 
 ```bash
-git clone https://github.com/efaimo-ai/mcp-stateless-migration \
+git clone --depth 1 https://github.com/efaimo-ai/mcp-stateless-migration \
   ~/.claude/skills/mcp-stateless-migration
 ```
 
@@ -99,4 +99,4 @@ checking by hand. `SKILL.md` says so where an agent will read it.
 
 ## License
 
-Apache-2.0. See [LICENSE](./LICENSE).
+Apache-2.0. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
