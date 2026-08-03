@@ -25,7 +25,7 @@ Useful flags:
 - `--repo ./src` also greps source for removed primitives, which catches code
   paths a live probe never reaches.
 - `--json` for CI.
-- `--strict` to exit non zero on warnings.
+- `--strict` to exit non-zero on warnings.
 
 ## 2. The official conformance suite
 

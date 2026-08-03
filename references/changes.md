@@ -19,9 +19,9 @@ Link form: `https://github.com/modelcontextprotocol/modelcontextprotocol/pull/<n
 | what | consequence | PR |
 |---|---|---|
 | `initialize`, `notifications/initialized` | Every request carries its own protocol version and client capabilities in `_meta`. | 2575 |
-| `Mcp-Session-Id`, protocol level sessions | Cross call state becomes server minted handles, passed back as ordinary tool arguments. | 2567 |
-| `Last-Event-ID`, SSE resumability | A broken response stream loses the in flight request. Clients re-issue it as a new one. | 2575 |
-| The HTTP GET endpoint, `resources/subscribe`, `resources/unsubscribe` | Replaced by `subscriptions/listen`: one long lived POST response stream carrying the change notifications a client opted into. A server that still exposes GET for notifications, or answers `resources/subscribe`, is talking to nobody. | 2575 |
+| `Mcp-Session-Id`, protocol level sessions | Cross-call state becomes server-minted handles, passed back as ordinary tool arguments. | 2567 |
+| `Last-Event-ID`, SSE resumability | A broken response stream loses the in-flight request. Clients re-issue it as a new one. | 2575 |
+| The HTTP GET endpoint, `resources/subscribe`, `resources/unsubscribe` | Replaced by `subscriptions/listen`: one long-lived POST response stream carrying the change notifications a client opted into. A server that still exposes GET for notifications, or answers `resources/subscribe`, is talking to nobody. | 2575 |
 | `ping`, `logging/setLevel`, `notifications/roots/list_changed` | Log level moves per request into `_meta["io.modelcontextprotocol/logLevel"]`. | 2575 |
 
 ## Added
@@ -29,8 +29,8 @@ Link form: `https://github.com/modelcontextprotocol/modelcontextprotocol/pull/<n
 | what | consequence | PR |
 |---|---|---|
 | `server/discover` | Servers MUST implement it, to advertise supported versions, capabilities and identity. | 2575 |
-| `resultType` on every result | `"complete"`, or `"input_required"` for a multi round trip interim result. | 2322 |
-| Multi Round-Trip Requests | Replaces every server initiated request: `roots/list`, `sampling/createMessage`, `elicitation/create`. | 2322 |
+| `resultType` on every result | `"complete"`, or `"input_required"` for a Multi Round-Trip interim result. | 2322 |
+| Multi Round-Trip Requests | Replaces every server-initiated request: `roots/list`, `sampling/createMessage`, `elicitation/create`. | 2322 |
 | `Mcp-Method`, `Mcp-Name` headers | On Streamable HTTP POST. See the note below: they are not required equally. | 2243 |
 | `ttlMs`, `cacheScope` | Required on every list and resource read result, so clients can cache and stop polling. | 2549 |
 

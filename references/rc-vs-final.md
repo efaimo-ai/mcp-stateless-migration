@@ -100,7 +100,7 @@ rejection is no longer conformant.
 
 ## The rest, for completeness
 
-- `CancelledNotification.params.requestId` went optional to **required**.
+- `CancelledNotification.params.requestId` went from optional to **required**.
 - New `NotificationMetaObject` and `ResultMetaObject` narrow what `_meta` may
   carry on notifications and results respectively.
 - `subscriptions/listen` gained `SubscriptionsListenResult`, whose `_meta`

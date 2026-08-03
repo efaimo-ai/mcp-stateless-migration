@@ -12,7 +12,7 @@ metadata:
 The MCP specification published on 2026-07-28 removes the `initialize`
 handshake and protocol level sessions. The spec calls it a breaking change in
 its own words. Nothing stopped working that day: the same release adopts a
-minimum twelve month deprecation window (SEP-2596).
+minimum twelve-month deprecation window (SEP-2596).
 
 **Do not answer this from memory.** This revision published on 2026-07-28, later
 than many model training cutoffs; check yours before trusting recall about it.
@@ -45,9 +45,10 @@ Ordered by what blocks the rest. Full detail per item, with the shapes and the
 SEP links, is in `references/changes.md`.
 
 1. **Upgrade the SDK first.** TypeScript `@modelcontextprotocol/server` 2.x,
-   Python `mcp` 2.x; both cut 2.0.0 on 2026-07-27, the day before the spec
-   published. The 2.x lines implement `server/discover`, `resultType` and the
-   cache fields for you, which closes most of the list without hand written
+   Python `mcp` 2.x; TypeScript cut 2.0.0 on 2026-07-27, the day before the
+   spec published, and Python's 2.0.0 landed on 2026-07-28, the day it did.
+   The 2.x lines implement `server/discover`, `resultType` and the
+   cache fields for you, which closes most of the list without hand-written
    code. On TypeScript, `npx @modelcontextprotocol/codemod` rewrites the v1
    call sites to v2 for you. Do this before anything below: diff, codemod,
    re-check.
@@ -62,10 +63,10 @@ SEP links, is in `references/changes.md`.
    for a Multi Round-Trip interim result.
 5. **Put `ttlMs` and `cacheScope` on every cacheable result**: the list results,
    the resource reads, and `server/discover` itself.
-6. **Replace server initiated requests with Multi Round-Trip Requests.**
+6. **Replace server-initiated requests with Multi Round-Trip Requests.**
    `roots/list`, `sampling/createMessage` and `elicitation/create` are gone as
-   server initiated calls. Return an `InputRequiredResult` instead.
-7. **Replace cross call state with server minted handles** passed back as
+   server-initiated calls. Return an `InputRequiredResult` instead.
+7. **Replace cross-call state with server-minted handles** passed back as
    ordinary tool arguments. Nothing may live in a session.
 8. **Move off the deprecated primitives** where you can: Roots, Sampling,
    Logging. These still work and have until 2027-07-28 at the earliest, so do
