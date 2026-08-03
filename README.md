@@ -56,7 +56,7 @@ tool this skill tells you to run:
 
 ```
 $ npx efaimo check --skill ./mcp-stateless-migration
-efaimo v0.1.1
+efaimo v0.1.2
 check skill  mcp-stateless-migration
 grade A (100)   0 errors  0 warnings  0 info
 
@@ -65,7 +65,7 @@ grade A (100)   0 errors  0 warnings  0 info
 rules: https://github.com/efaimo-ai/efaimo/blob/main/docs/RULES.md
 
 $ npx efaimo weigh ./mcp-stateless-migration
-efaimo v0.1.1
+efaimo v0.1.2
   skill                        metadata      body  lines  refs
   mcp-stateless-migration           104     1,428    109  3 files 3,690
 
@@ -75,7 +75,7 @@ note: metadata loads at session start for every installed skill; body loads on t
 note: token counts are o200k_base estimates (see docs/METHODOLOGY.md)
 ```
 
-Captured verbatim from `efaimo@0.1.1` on 2026-08-03. The one edit: the
+Captured verbatim from `efaimo@0.1.2` on 2026-08-03. The one edit: the
 `weigh skills` header line is removed, because it prints this machine's
 absolute path. (Until 2026-08-02 this section quoted a reference count of
 3,305 from the commit before `references/changes.md` gained its thirteenth
