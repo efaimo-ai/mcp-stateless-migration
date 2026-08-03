@@ -36,7 +36,10 @@ for (const f of files) {
   }
 }
 
-if (files.length < 3) {
+// Empty-harvest floor tied to real content, not just to the guard's own two
+// infra files: a skill carries SKILL.md, README, LICENSE, NOTICE and this
+// script at least, so a walk that found fewer stopped looking somewhere.
+if (files.length < 5) {
   console.error(`house-style: scanned only ${files.length} files; the guard is not looking where it should.`);
   process.exit(2);
 }
