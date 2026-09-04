@@ -147,11 +147,16 @@ change: the numbers had outlived the measurement by one commit, in the README
 of a brand whose product exists to catch exactly that.)
 
 104 tokens sit in your context at all times, which is what every installed
-skill costs you whether or not you use it. The 1,428 token body loads only when
+skill costs you whether or not you use it. The 1,517 token body loads only when
 the skill triggers, and the 3,690 tokens of reference material only when it is
 actually read. Those are a measurement of the commit you are reading, not a
 promise about the next one: re-run both commands yourself, which is the point
 of quoting them at all.
+
+(The body number read 1,428 here until 2026-09-05, three lines under a table
+that said 1,517 and one paragraph under the note about this exact thing having
+happened before. The table was watched and the sentence was not, so the check
+that reads these READMEs now reads both.)
 
 ## Scope
 
