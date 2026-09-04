@@ -116,3 +116,14 @@ official conformance suite, which is an independent reading of the same spec.
 - `references/rc-vs-final.md`: what moved between the locked RC and the
   published spec. Read this before trusting any guide written before 2026-07-28.
 - `references/verify.md`: how to prove the migration landed.
+
+<!-- generated:siblings -->
+
+## Siblings
+
+Every skill in this set is about a report that was true about the wrong thing. The set: https://efaimo.ai/skills
+
+- `unreleased-guard` - when the docs describe the migrated server and the published one has not migrated yet.
+- `red-before-green` - before believing an empty readiness list, confirm the check can produce one.
+
+<!-- /generated:siblings -->
