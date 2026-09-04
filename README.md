@@ -1,7 +1,39 @@
 # mcp-stateless-migration
 
+[![license](https://img.shields.io/badge/license-Apache--2.0-0b7285)](LICENSE)
+[![grade](https://img.shields.io/badge/efaimo%20check--skill-A%20(100)-0b7285)](https://efaimo.ai/skills)
+[![house-style](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml/badge.svg)](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml)
+
 An Agent Skill for migrating an MCP server to the stateless MCP specification
 published on **2026-07-28**.
+
+## What moves
+
+```mermaid
+flowchart LR
+    subgraph OLD["before 2026-07-28"]
+        A1["initialize<br/>Mcp-Session-Id"]
+        A2["Sampling, Roots, Logging"]
+        A3["elicitation/create"]
+        A4["ping, Last-Event-ID"]
+        A5["resources/subscribe"]
+    end
+    subgraph NEW["2026-07-28, stateless"]
+        B1["no handshake<br/>server/discover"]
+        B2["provider API, tool args, stderr"]
+        B3["MRTR<br/>resultType input_required"]
+        B4["removed"]
+        B5["subscriptions/listen"]
+    end
+    A1 --> B1
+    A2 --> B2
+    A3 --> B3
+    A4 --> B4
+    A5 --> B5
+```
+
+Thirteen changes in total. Two of them have no readiness rule behind them and
+have to be checked by hand; the skill says which two where an agent will read it.
 
 ## Why a skill and not a blog post
 
@@ -96,6 +128,25 @@ migrate the code for you, and a clean `efaimo` readiness list is not the same as
 all thirteen changes done: two of them (the `Mcp-Method` / `Mcp-Name` headers, and
 Tasks moving to an extension) have no readiness rule behind them and need
 checking by hand. `SKILL.md` says so where an agent will read it.
+
+## The set
+
+Seven skills, each one a discipline that cost something to learn.
+
+| skill | the question it asks |
+|---|---|
+| [`red-before-green`](https://github.com/efaimo-ai/red-before-green) | can this check fail at all? |
+| [`denominator`](https://github.com/efaimo-ai/denominator) | how much of the world can it see? |
+| [`read-back`](https://github.com/efaimo-ai/read-back) | did the write actually apply? |
+| [`claim-sweep`](https://github.com/efaimo-ai/claim-sweep) | what else still asserts the old value? |
+| [`unreleased-guard`](https://github.com/efaimo-ai/unreleased-guard) | does the copy describe what shipped? |
+| [`honest-chart`](https://github.com/efaimo-ai/honest-chart) | is the picture proportional to the data? |
+| **`mcp-stateless-migration`** (this one) | does this server match the 2026-07-28 spec? |
+
+All of them are audited by [`efaimo`](https://github.com/efaimo-ai/efaimo), the
+CLI that measures the quality and context-window cost of MCP servers and Agent
+Skills. The index of every public skill it can find, graded, is at
+[efaimo.ai/skills](https://efaimo.ai/skills).
 
 ## License
 
