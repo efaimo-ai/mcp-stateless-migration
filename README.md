@@ -13,20 +13,31 @@ published on **2026-07-28**.
 
 ```sh
 # into ./.claude/skills/mcp-stateless-migration/
-npx -y github:efaimo-ai/mcp-stateless-migration
+npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration
 
 # into ~/.claude/skills/mcp-stateless-migration/, for every project
-npx -y github:efaimo-ai/mcp-stateless-migration --global
+npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration --global
 
 # installed already, and still current?
-npx -y github:efaimo-ai/mcp-stateless-migration --check
+npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration --check
 ```
 
 That is the repository, not the registry, and it is deliberate: `mcp-stateless-migration` is
-not on npm yet, and a README that prints `npx mcp-stateless-migration` today would be
-advertising a command that 404s. The line above works right now. The day the
-package publishes it becomes `npx mcp-stateless-migration`, and this README is regenerated from
-a committed registry probe rather than from anybody's memory.
+not on npm yet, and printing `npx mcp-stateless-migration` today would advertise a command that
+404s.
+
+`--allow-git=all` is there because npm 12 refuses git specs by default
+(`EALLOWGIT`), and it is the only value that helps: a narrower
+`--allow-git=<spec>` is still refused. **You should not enjoy typing it.**
+Switching off a protection npm added on purpose is a poor way to install
+anything, and the honest alternative is that this skill is markdown: copy
+`SKILL.md` and its `references/` into `.claude/skills/mcp-stateless-migration/` and you are
+done, with nothing to trust.
+
+Both of those go away when the package publishes, because `npx mcp-stateless-migration` needs
+no flag on either npm major. This README is regenerated from a committed
+registry probe, so that sentence changes itself rather than waiting for someone
+to remember it.
 
 The package is the skill: `SKILL.md` and its `references/`, nothing else. The
 installer copies them, reads every byte back, and fails if what landed is not
@@ -34,7 +45,7 @@ what it wrote. It refuses to overwrite a directory whose contents differ unless
 you pass `--force`, and installing the same version twice is a success rather
 than a conflict.
 
-Or take it by hand. It is markdown; `npx -y github:efaimo-ai/mcp-stateless-migration --print` writes `SKILL.md` to
+Or take it by hand. It is markdown; `npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration --print` writes `SKILL.md` to
 stdout, and the repository is the whole thing.
 
 <!-- /generated:install -->
@@ -176,7 +187,7 @@ ever fires.
 
 ```mermaid
 flowchart LR
-    N["npx -y github:efaimo-ai/mcp-stateless-migration"] --> D[/".claude/skills/mcp-stateless-migration/"/]
+    N["npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration"] --> D[/".claude/skills/mcp-stateless-migration/"/]
     D --> M["frontmatter<br/><b>every session, always</b>"]
     D --> B["SKILL.md body<br/><i>only when it triggers</i>"]
     D --> R["references/<br/><i>only if the agent reads them</i>"]
