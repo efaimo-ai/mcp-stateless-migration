@@ -5,6 +5,7 @@ license: Apache-2.0
 metadata:
   version: "0.1.0"
   homepage: "https://efaimo.ai"
+  verified_against: "2026-09-04"
 ---
 
 # Migrating an MCP server to 2026-07-28
