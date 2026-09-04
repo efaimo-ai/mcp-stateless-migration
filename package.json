@@ -1,0 +1,44 @@
+{
+  "name": "mcp-stateless-migration",
+  "version": "0.1.0",
+  "description": "Migrate an MCP server to the stateless MCP specification published 2026-07-28.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "author": "efaimo ai (https://efaimo.ai)",
+  "homepage": "https://efaimo.ai/skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/efaimo-ai/mcp-stateless-migration.git"
+  },
+  "bugs": {
+    "url": "https://github.com/efaimo-ai/mcp-stateless-migration/issues"
+  },
+  "keywords": [
+    "agent-skill",
+    "agent-skills",
+    "claude",
+    "claude-code",
+    "ai-agents",
+    "mcp"
+  ],
+  "bin": {
+    "mcp-stateless-migration": "bin/install.mjs"
+  },
+  "files": [
+    "SKILL.md",
+    "references",
+    "bin",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "house-style": "node scripts/check-house-style.mjs"
+  },
+  "publishConfig": {
+    "provenance": true,
+    "access": "public"
+  }
+}
