@@ -1,6 +1,5 @@
 # mcp-stateless-migration
 
-[![npm](https://img.shields.io/npm/v/mcp-stateless-migration?color=0b7285&label=npm)](https://www.npmjs.com/package/mcp-stateless-migration)
 [![license](https://img.shields.io/badge/license-Apache--2.0-0b7285)](LICENSE)
 [![grade](https://img.shields.io/badge/efaimo%20check--skill-A%20(100)-0b7285)](https://efaimo.ai/skills)
 [![house-style](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml/badge.svg)](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml)
@@ -13,10 +12,21 @@ published on **2026-07-28**.
 ## Install
 
 ```sh
-npx mcp-stateless-migration                 # into ./.claude/skills/mcp-stateless-migration/
-npx mcp-stateless-migration --global        # into ~/.claude/skills/mcp-stateless-migration/
-npx mcp-stateless-migration --check         # installed, and current?
+# into ./.claude/skills/mcp-stateless-migration/
+npx -y github:efaimo-ai/mcp-stateless-migration
+
+# into ~/.claude/skills/mcp-stateless-migration/, for every project
+npx -y github:efaimo-ai/mcp-stateless-migration --global
+
+# installed already, and still current?
+npx -y github:efaimo-ai/mcp-stateless-migration --check
 ```
+
+That is the repository, not the registry, and it is deliberate: `mcp-stateless-migration` is
+not on npm yet, and a README that prints `npx mcp-stateless-migration` today would be
+advertising a command that 404s. The line above works right now. The day the
+package publishes it becomes `npx mcp-stateless-migration`, and this README is regenerated from
+a committed registry probe rather than from anybody's memory.
 
 The package is the skill: `SKILL.md` and its `references/`, nothing else. The
 installer copies them, reads every byte back, and fails if what landed is not
@@ -24,7 +34,7 @@ what it wrote. It refuses to overwrite a directory whose contents differ unless
 you pass `--force`, and installing the same version twice is a success rather
 than a conflict.
 
-Or take it by hand. It is markdown; `npx mcp-stateless-migration --print` writes `SKILL.md` to
+Or take it by hand. It is markdown; `npx -y github:efaimo-ai/mcp-stateless-migration --print` writes `SKILL.md` to
 stdout, and the repository is the whole thing.
 
 <!-- /generated:install -->
@@ -161,7 +171,7 @@ ever fires.
 
 ```mermaid
 flowchart LR
-    N["npx mcp-stateless-migration"] --> D[/".claude/skills/mcp-stateless-migration/"/]
+    N["npx -y github:efaimo-ai/mcp-stateless-migration"] --> D[/".claude/skills/mcp-stateless-migration/"/]
     D --> M["frontmatter<br/><b>every session, always</b>"]
     D --> B["SKILL.md body<br/><i>only when it triggers</i>"]
     D --> R["references/<br/><i>only if the agent reads them</i>"]
