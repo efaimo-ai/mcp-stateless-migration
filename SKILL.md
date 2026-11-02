@@ -4,7 +4,7 @@ description: Migrate an MCP server to the stateless MCP specification published 
 license: Apache-2.0
 metadata:
   version: "0.1.0"
-  homepage: "https://efaimo.ai"
+  homepage: "https://efaimo.com"
   verified_against: "2026-09-04"
 ---
 
@@ -121,7 +121,7 @@ official conformance suite, which is an independent reading of the same spec.
 
 ## Siblings
 
-Every skill in this set is about a report that was true about the wrong thing. The set: https://efaimo.ai/skills
+Every skill in this set is about a report that was true about the wrong thing. The set: https://efaimo.com/skills
 
 - `unreleased-guard` - when the docs describe the migrated server and the published one has not migrated yet.
 - `red-before-green` - before believing an empty readiness list, confirm the check can produce one.

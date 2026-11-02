@@ -1,7 +1,7 @@
 # mcp-stateless-migration
 
 [![license](https://img.shields.io/badge/license-Apache--2.0-0b7285)](LICENSE)
-[![grade](https://img.shields.io/badge/efaimo%20check--skill-A%20(100)-0b7285)](https://efaimo.ai/skills)
+[![grade](https://img.shields.io/badge/efaimo%20check--skill-A%20(100)-0b7285)](https://efaimo.com/skills)
 [![house-style](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml/badge.svg)](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml)
 
 An Agent Skill for migrating an MCP server to the stateless MCP specification
@@ -250,7 +250,7 @@ graph TD
 ```
 
 Each edge is a real handoff, not a category: the reason one skill points at
-another is written into it at [efaimo.ai/skills](https://efaimo.ai/skills), and
+another is written into it at [efaimo.com/skills](https://efaimo.com/skills), and
 in the `Siblings` section of every `SKILL.md`. All of them are graded and
 weighed by [`efaimo`](https://github.com/efaimo-ai/efaimo), the CLI that measures
 what an agent loads.
