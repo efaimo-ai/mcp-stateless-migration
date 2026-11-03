@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Install this Agent Skill into a skills directory.
 //
-// GENERATED FILE. The source of truth is startup/skill-pkg/template/bin/install.mjs
+// GENERATED FILE. The source of truth is efaimo/skill-pkg/template/bin/install.mjs
 // and `node skill-pkg/apply.mjs` writes it into every skill repo. Editing a copy
 // makes the seven drift; `node skill-pkg/check-drift.mjs` goes red when they do.
 //
@@ -18,9 +18,9 @@
 //   --force        overwrite a directory whose contents differ
 //
 // Flags, not full command lines, and that is deliberate. This package can be
-// reached as `npx <name>`, as `npx -y github:efaimo-ai/<name>` before it is on
-// npm, or as a local `node_modules/.bin` entry, and the help text cannot know
-// which. It used to print `npx <name>` unconditionally, which was a 404 for
+// reached as `npx <name>`, as `npx -y --allow-git=all github:efaimo-ai/<name>`
+// before it is on npm, or as a local `node_modules/.bin` entry, and the help
+// text cannot know which. It used to print `npx <name>` unconditionally, which was a 404 for
 // every one of these packages on the day it was written, and the test asserted
 // that string so nothing went red. A tool tells you its flags; you already know
 // how you invoked it.

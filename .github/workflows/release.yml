@@ -1,5 +1,5 @@
 name: release
-# GENERATED FILE. Source of truth: startup/skill-pkg/template/.github/workflows/release.yml
+# GENERATED FILE. Source of truth: efaimo/skill-pkg/template/.github/workflows/release.yml
 #
 # Publishes to npm with SLSA provenance over OIDC on a v*.*.* tag, then cuts the
 # GitHub Release. No secret is involved.
@@ -48,12 +48,14 @@ jobs:
       #
       # The first version of each package cannot be published from here at all:
       # trusted publishing is configured from an existing package's settings
-      # page, so it is published from an authenticated session and the tag comes
-      # afterwards. Without this check that tag push runs `npm publish` over a
-      # version that already exists, npm answers 403, and the run goes red - on
+      # page, so a tag pushed before the first publish gets E404 (`404 Not Found
+      # - PUT https://registry.npmjs.org/<name>`). `denominator`'s v0.1.0 run on
+      # 2026-09-04 is the recorded instance. So the first version is published
+      # from an authenticated session and the tag comes afterwards, and without
+      # this check that tag push would run `npm publish` over a version that
+      # already exists, which npm refuses with E403, and the run would go red on
       # every repo in the set at once, for doing exactly what the release
-      # procedure says to do. `denominator`'s v0.1.0 run is the recorded
-      # instance of this shape.
+      # procedure says to do.
       #
       # The GitHub Release below still gets cut, which is the half of this
       # workflow the tag is actually for once the package is already up.
@@ -83,10 +85,16 @@ jobs:
             exit 0
           fi
           name=$(node -e "console.log(require('./package.json').name)")
+          # The "Not published yet" note is true until the publish and false on
+          # a Release page, so it never goes into the notes. The commit before
+          # the tag should already have dropped it (skill-pkg/prepare-release.mjs).
           if [ -f CHANGELOG.md ]; then
             awk -v v="${GITHUB_REF_NAME#v}" '
               $0 ~ "^## \\[" v "\\]" { f = 1; next }
               f && (/^## \[/ || /^\[[^]]*\]: http/) { exit }
+              f && /^> \*\*Not published yet\./ { q = 1; next }
+              q && /^>/ { next }
+              { q = 0 }
               f { print }
             ' CHANGELOG.md > "$RUNNER_TEMP/notes.md"
           fi

@@ -1,5 +1,5 @@
 name: ci
-# GENERATED FILE. Source of truth: startup/skill-pkg/template/.github/workflows/ci.yml
+# GENERATED FILE. Source of truth: efaimo/skill-pkg/template/.github/workflows/ci.yml
 #
 # There is no build and no dependency to install, so CI is the three things that
 # can actually be wrong: the installer's behaviour, the house rule, and whether

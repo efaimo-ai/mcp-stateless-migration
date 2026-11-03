@@ -200,7 +200,7 @@ flowchart LR
     class B,R lazy;
 ```
 
-In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.5.0, 2026-09-04):
+In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.6.0, 2026-11-02):
 **104 tokens always resident**, 1,517 when it triggers, 3,690 across 3 reference files if the agent reads to the end.
 
 <!-- /generated:pipeline -->

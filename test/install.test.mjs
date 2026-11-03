@@ -1,4 +1,4 @@
-// GENERATED FILE. Source of truth: startup/skill-pkg/template/test/install.test.mjs
+// GENERATED FILE. Source of truth: efaimo/skill-pkg/template/test/install.test.mjs
 //
 // The installer, spawned for real against this package's own skill. Nothing is
 // mocked: the thing most likely to be wrong is what actually lands on disk, and
