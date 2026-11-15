@@ -224,7 +224,7 @@ if (state.kind === "differs" && !has("--force")) {
 }
 
 // Write, then read every byte back. A copy that reported success and landed
-// something else is the failure `read-back` exists for, and an installer that
+// something else is the failure `read-it-back` exists for, and an installer that
 // exits 0 on it would be the worst possible advertisement for this set.
 let written = 0;
 for (const rel of files) {
