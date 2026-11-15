@@ -80,7 +80,8 @@ SEP links, is in `references/changes.md`.
 1. **Upgrade the SDK, then switch to its modern entry point.** In TypeScript
    and Go the upgrade alone puts nothing new on the wire.
    - TypeScript, `@modelcontextprotocol/server` 2.x: for the v1 to v2 API, run
-     `npx @modelcontextprotocol/codemod@latest v1-to-v2 .` at the package root.
+     `npx @modelcontextprotocol/codemod@2.4.0 v1-to-v2 .` at the package root
+     (2.4.0 was the version on npm on 2026-11-16).
      The codemod does not adopt 2026-07-28. Replace
      `server.connect(new StdioServerTransport())` with
      `serveStdio(() => buildServer())`, and HTTP hosting with

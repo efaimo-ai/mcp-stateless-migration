@@ -32,21 +32,22 @@ Sources, one per row:
 ## The TypeScript codemod and what it leaves
 
 ```bash
-npx @modelcontextprotocol/codemod@latest v1-to-v2 .
+npx @modelcontextprotocol/codemod@2.4.0 v1-to-v2 .
 ```
 
-Run it at the package root. It rewrites the v1 SDK surface to v2 (imports,
-renames). It does not adopt 2026-07-28: the TypeScript migration guide calls
+2.4.0 is the version npm reported for the codemod on 2026-11-16 (the SDK's own
+docs write `@latest`). Run it at the package root. It rewrites the v1 SDK
+surface to v2 (imports, renames). It does not adopt 2026-07-28: the TypeScript migration guide calls
 that step "architectural and not codemod-automatable". After the codemod,
 swap the entry point as in the table, then look at the cache hints. When
 serving 2026-07-28 the SDK always emits `ttlMs` and `cacheScope`, defaulting to
 `0` and `"private"`; set `ServerOptions.cacheHints` to advertise a real policy.
 
-The SDK also publishes the v1 to v2 guide as an agent skill. It runs the
-codemod first and covers what is left of the API change; this skill covers the
-protocol decision and the proof. The SDK's docs give its install line as
-`npx skills add modelcontextprotocol/typescript-sdk --skill mcp-typescript-sdk-upgrade-to-v2`
-(https://github.com/modelcontextprotocol/typescript-sdk/blob/main/docs/migration/index.md).
+The SDK also publishes the v1 to v2 guide as an agent skill,
+`mcp-typescript-sdk-upgrade-to-v2`. It runs the codemod first and covers what
+is left of the API change; this skill covers the protocol decision and the
+proof. How to install it is in the SDK's migration index:
+https://github.com/modelcontextprotocol/typescript-sdk/blob/main/docs/migration/index.md
 
 Python has no codemod. Its migration guide lists each error message next to
 the change that causes it, which is the fastest way through.
