@@ -5,7 +5,8 @@
 [![house-style](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml/badge.svg)](https://github.com/efaimo-ai/mcp-stateless-migration/actions/workflows/house-style.yml)
 
 An Agent Skill for migrating an MCP server to the stateless MCP specification
-published on **2026-07-28**.
+published on **2026-07-28**, and for keeping it open to the clients that still
+speak 2025-11-25 while you do.
 
 <!-- generated:install -->
 
@@ -77,6 +78,15 @@ flowchart LR
 
 Thirteen changes in total. Two of them have no readiness rule behind them and
 have to be checked by hand; the skill says which two where an agent will read it.
+A few more changes sit outside that count (the removed elicitation completion
+notification, the deprecated HTTP+SSE transport) and are listed separately.
+
+The first thing the skill asks is whether clients that open with `initialize`
+still connect. Unless every client is known to speak 2026-07-28, it recommends
+serving both revisions on one endpoint, which the spec allows: a server that
+speaks only 2026-07-28 fails every older client, and those clients cannot fall
+forward
+([compatibility matrix](https://modelcontextprotocol.io/specification/2026-07-28/basic/versioning#compatibility-matrix)).
 
 ## Why a skill and not a blog post
 
@@ -99,28 +109,22 @@ reported "identity unknown" for exactly the servers that had finished
 migrating. The fix, and the diff that found it, are what this skill packages.
 
 This skill carries the published shapes, the deltas from the RC, and the two
-commands that prove the migration landed.
+independent checks that prove the migration landed.
 
-Everything in it is verified against `schema/2026-07-28/schema.ts` at tag
-`2026-07-28` in `modelcontextprotocol/modelcontextprotocol`, not against a
+The protocol facts in it are verified against `schema/2026-07-28/schema.ts` at
+tag `2026-07-28` in `modelcontextprotocol/modelcontextprotocol`, not against a
 summary. `references/rc-vs-final.md` includes the commands to reproduce the
-RC-to-final diff yourself.
-
-## Install
-
-Copy the directory into your skills location, for example:
-
-```bash
-git clone --depth 1 https://github.com/efaimo-ai/mcp-stateless-migration \
-  ~/.claude/skills/mcp-stateless-migration
-```
+RC-to-final diff yourself. The SDK, client and conformance suite facts change
+faster; they were checked on 2026-11-16 and carry that date in
+`references/sdks.md`.
 
 ## What is in it
 
 | file | loaded | contents |
 |---|---|---|
-| `SKILL.md` | on trigger | the three-step procedure: measure, change, prove |
-| `references/changes.md` | on demand | all thirteen changes with their SEP or PR, and the shapes to emit |
+| `SKILL.md` | on trigger | which clients to keep, then three steps: measure, change, prove |
+| `references/changes.md` | on demand | all thirteen changes with their SEP or PR, what else changed, and the shapes to emit |
+| `references/sdks.md` | on demand | per SDK entry points and versions, client behaviour, dated 2026-11-16 |
 | `references/rc-vs-final.md` | on demand | what moved between the locked RC and the published spec |
 | `references/verify.md` | on demand | how to prove it landed, and what a passing suite still misses |
 
@@ -160,9 +164,12 @@ of a brand whose product exists to catch exactly that.)
 104 tokens sit in your context at all times, which is what every installed
 skill costs you whether or not you use it. The 1,517 token body loads only when
 the skill triggers, and the 3,690 tokens of reference material only when it is
-actually read. Those are a measurement of the commit you are reading, not a
-promise about the next one: re-run both commands yourself, which is the point
-of quoting them at all.
+actually read. Those numbers measure the skill as it stood on 2026-09-04, not
+the commit you are reading: the text was revised on 2026-11-16 (the dual-era
+step, the SDK entry points, a fourth reference file), so the body and the
+references are larger now, and this capture is retaken when that revision is
+published. Re-run both commands yourself, which is the point of quoting them
+at all.
 
 (The body number read 1,428 here until 2026-09-05, three lines under a table
 that said 1,517 and one paragraph under the note about this exact thing having

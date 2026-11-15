@@ -30,10 +30,31 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
   run that packs the package the way npm would, installs it from that tarball,
   and installs the skill from there.
 
+### Changed
+
+- The skill's content was re-verified on 2026-11-16 against the published
+  spec, the SDK releases and the conformance suite, and revised. It now asks
+  first which clients still connect and recommends serving 2025-11-25 and
+  2026-07-28 on one endpoint unless every client speaks 2026-07-28. It names
+  the SDK entry points that actually switch the wire (TypeScript
+  `serveStdio` / `createMcpHandler`, Go `Stateless = true`, Python
+  `MCPServer`), seals `requestState` and binds it to the request, warns that a
+  retry can run a mutating tool twice and that a request without `logLevel`
+  gets no logs, and proves the result with the conformance `--requirements`
+  sets.
+- No longer says SEP-2596 keeps 2025-11-25 servers working until a date. It
+  governs deprecated features; how long a revision is served is still open.
+- Commands name the published `efaimo@0.6.0` and an exact conformance version,
+  each with the date it was read from npm.
+- New `references/sdks.md`: entry points, versions and client behaviour per
+  SDK, dated 2026-11-16, to re-check when the next revision ships.
+- `references/changes.md` keeps its thirteen and adds an "Also changed"
+  section (the removed elicitation completion notification, the deprecated
+  HTTP+SSE transport), and corrects the `_meta` key list to six.
+
 ### Notes
 
-- The skill's own content did not change for this release. It grades A(100) on
-  `efaimo check --skill` before and after, and the package version and the
-  version in `SKILL.md` frontmatter are one number, pinned by a test.
+- The package version and the version in `SKILL.md` frontmatter are one
+  number, pinned by a test.
 
 [Unreleased]: https://github.com/efaimo-ai/mcp-stateless-migration/commits/main
