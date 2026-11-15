@@ -84,24 +84,6 @@ about which shape you emit rather than whether you answer:
    `2025-11-25` requirement set as well, and open one `initialize` session by
    hand.
 
-## 4. Do not skip the cost question
-
-Migrating is a good moment to look at what the server costs the context window,
-because the tool surface is already open in front of you:
-
-```bash
-npx efaimo@0.6.0 weigh "npx -y <the-server>"
-```
-
-Tool count does not predict cost, and the gap is not small. In a loadout of
-eight real servers measured on 2026-07-18 (versions pinned in the report),
-`notion-mcp-server` and `@playwright/mcp` both
-expose exactly 24 tools and cost 17,218 and 3,453 tokens: a factor of five for
-the same tool count. The difference is almost always description and schema
-weight rather than the number of entries. Version pins and a per row reproduce
-command are in
-<https://github.com/efaimo-ai/efaimo/blob/main/research/mcp-stack-cost/REPORT.md>.
-
 ## A note on trusting green
 
 A check you have never seen fail is not a check. Before you believe any of the

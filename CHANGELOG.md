@@ -42,6 +42,11 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
   retry can run a mutating tool twice and that a request without `logLevel`
   gets no logs, and proves the result with the conformance `--requirements`
   sets.
+- Step 1 starts with a hand audit against `references/changes.md`.
+  `efaimo check --mcp` is the option for when you can start or reach the
+  server and want the list generated. The `efaimo weigh` suggestions (the last
+  trap, and the cost section of `references/verify.md`) are gone: the migration
+  does not need them.
 - No longer says SEP-2596 keeps 2025-11-25 servers working until a date. It
   governs deprecated features; how long a revision is served is still open.
 - Commands name the published `efaimo@0.6.0` and an exact conformance version,

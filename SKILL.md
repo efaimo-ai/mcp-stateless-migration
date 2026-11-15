@@ -54,7 +54,13 @@ Write the choice down. Step 3 tests both eras if you chose dual-era.
 
 ## Step 1: measure, do not guess
 
-Get the actual diff for this server before changing a line:
+Get the actual diff for this server before changing a line. Read
+`references/changes.md` and audit the server by hand against it: for each of
+the thirteen changes, note whether the server depends on it and where. Work
+that list. A server with zero items still needs Step 3.
+
+If you can start or reach the server and want the list generated, efaimo
+prints one:
 
 ```bash
 npx efaimo@0.6.0 check --mcp "npx -y <the-server>"      # stdio
@@ -66,11 +72,7 @@ npx efaimo@0.6.0 check --mcp "<server>" --repo ./src    # also scan source
 this skill describe what that release does.
 
 It prints a quality grade and, separately, a `2026-07-28 readiness` list: each
-item is a rule id (E101 to E118), what breaks, and the SEP that changed it. Work
-that list. A server with zero items still needs Step 3.
-
-If the server will not start, read `references/changes.md` and audit by hand
-against the same list.
+item is a rule id (E101 to E118), what breaks, and the SEP that changed it.
 
 ## Step 2: make the changes
 
@@ -184,9 +186,6 @@ pass. Either alone is a partial answer.
 - **`Mcp-Name` is not required on every request.** Only on `tools/call`,
   `resources/read` and `prompts/get`. Sending a wrong value is worse than
   sending none: a mismatch with the body MUST be rejected with `-32020`.
-- **Tool count does not predict context cost.** If you are touching the tool
-  surface anyway, `npx efaimo@0.6.0 weigh "<server>"` prints per tool token
-  cost.
 
 ## What this does not cover
 
