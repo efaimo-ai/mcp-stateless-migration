@@ -129,8 +129,8 @@ Audited by [efaimo](https://github.com/efaimo-ai/efaimo), which is the same
 tool this skill tells you to run:
 
 ```
-$ npx efaimo@0.6.1 check --skill ./mcp-stateless-migration
-efaimo v0.6.1
+$ npx efaimo@0.6.2 check --skill ./mcp-stateless-migration
+efaimo v0.6.2
 check skill  mcp-stateless-migration
 grade A (100)   0 errors  0 warnings  0 info
 
@@ -138,8 +138,8 @@ grade A (100)   0 errors  0 warnings  0 info
 
 rules: https://github.com/efaimo-ai/efaimo/blob/main/docs/RULES.md
 
-$ npx efaimo@0.6.1 weigh ./mcp-stateless-migration
-efaimo v0.6.1
+$ npx efaimo@0.6.2 weigh ./mcp-stateless-migration
+efaimo v0.6.2
   skill                        metadata      body  lines  refs
   mcp-stateless-migration           186     3,020    212  4 files 6,167
 
@@ -149,10 +149,10 @@ note: metadata loads at session start for every installed skill; body loads on t
 note: token counts are o200k_base estimates (see docs/METHODOLOGY.md)
 ```
 
-Captured verbatim from `efaimo@0.6.1` on 2026-11-16. Two edits: the
+Captured verbatim from `efaimo@0.6.2` on 2026-11-16. Two edits: the
 `weigh skills` header line is removed, because it prints this machine's
 absolute path, and the two command lines name the version that ran
-(`efaimo@0.6.1`) so that they reproduce this output rather than whatever
+(`efaimo@0.6.2`) so that they reproduce this output rather than whatever
 `latest` is when you read this. (Until 2026-08-02 this section quoted a reference count of
 3,305 from the commit before `references/changes.md` gained its thirteenth
 change: the numbers had outlived the measurement by one commit, in the README
@@ -213,7 +213,7 @@ flowchart TD
 
 </details>
 
-In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.6.1, 2026-11-16):
+In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.6.2, 2026-11-16):
 **186 tokens always resident**, 3,020 when it triggers, 6,167 across 4 reference files if the agent reads to the end.
 
 <!-- /generated:pipeline -->

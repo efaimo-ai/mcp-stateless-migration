@@ -8,10 +8,11 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
 
 ### Changed
 
-- **Commands pin `efaimo@0.6.1`** _(unreleased)_, one efaimo release newer
-  than the pin in 0.1.0. That release masks a key passed in a URL's query or
-  username in the `check --mcp` output, and ends a stdio server whose handshake
-  fails instead of leaving it running.
+- **Commands pin `efaimo@0.6.2`** _(unreleased)_, two efaimo releases newer
+  than the pin in 0.1.0. Between them they mask keys in the `check --mcp`
+  output (in a URL's query or username, or after `Bearer`), end a stdio server
+  whose handshake fails instead of leaving it running, and keep what a working
+  server writes to stderr out of the report.
 
 ## [0.1.0] - 2026-11-16
 

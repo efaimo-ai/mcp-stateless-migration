@@ -63,12 +63,12 @@ If you can start or reach the server and want the list generated, efaimo
 prints one:
 
 ```bash
-npx efaimo@0.6.1 check --mcp "npx -y <the-server>"      # stdio
-npx efaimo@0.6.1 check --mcp https://host/mcp           # remote
-npx efaimo@0.6.1 check --mcp "<server>" --repo ./src    # also scan source
+npx efaimo@0.6.2 check --mcp "npx -y <the-server>"      # stdio
+npx efaimo@0.6.2 check --mcp https://host/mcp           # remote
+npx efaimo@0.6.2 check --mcp "<server>" --repo ./src    # also scan source
 ```
 
-`efaimo@0.6.1` is the `latest` release on npm as of 2026-11-16; the commands in
+`efaimo@0.6.2` is the `latest` release on npm as of 2026-11-16; the commands in
 this skill describe what that release does.
 
 It prints a quality grade and, separately, a `2026-07-28 readiness` list: each
@@ -139,7 +139,7 @@ SEP links, is in `references/changes.md`.
 A migration that has not been measured is not finished.
 
 ```bash
-npx efaimo@0.6.1 check --mcp "<the-server>" --strict-readiness  # exits 1 unless readiness is clean
+npx efaimo@0.6.2 check --mcp "<the-server>" --strict-readiness  # exits 1 unless readiness is clean
 npx @modelcontextprotocol/conformance@0.2.0-alpha.12 server \
   --url https://host/mcp --requirements 2026-07-28
 # dual-era: the legacy set too; one run does not cover the other

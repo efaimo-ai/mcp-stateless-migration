@@ -7,10 +7,10 @@ on one is a partial answer.
 ## 1. The readiness diff
 
 ```bash
-npx efaimo@0.6.1 check --mcp "npx -y <the-server>"
+npx efaimo@0.6.2 check --mcp "npx -y <the-server>"
 ```
 
-`efaimo@0.6.1` is the `latest` release on npm as of 2026-11-16. Expect:
+`efaimo@0.6.2` is the `latest` release on npm as of 2026-11-16. Expect:
 
 ```
 2026-07-28 readiness  clean, nothing to migrate
@@ -55,10 +55,10 @@ replaces `--suite`, `--spec-version` and `--scenario`. The two eras use
 different wires, so a scenario that belongs to both runs twice, once per set.
 Passing one says nothing about the other.
 
-`efaimo@0.6.1` can run the suite for you:
+`efaimo@0.6.2` can run the suite for you:
 
 ```bash
-npx efaimo@0.6.1 check --mcp https://host/mcp --conformance
+npx efaimo@0.6.2 check --mcp https://host/mcp --conformance
 ```
 
 It prints the exact command line before running it, so you can rerun it by
