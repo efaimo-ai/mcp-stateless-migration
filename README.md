@@ -53,8 +53,17 @@ stdout, and the repository is the whole thing.
 
 ## What moves
 
-```mermaid
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/efaimo-ai/mcp-stateless-migration/main/assets/diagram-603ad85d8b-dark.png">
+  <img alt="What moves in the stateless revision of 2026-07-28. initialize and Mcp-Session-Id give way to no handshake and server/discover. Sampling, Roots and Logging move to the provider API, tool arguments and stderr. elicitation/create becomes MRTR with resultType input_required. ping and Last-Event-ID are removed. resources/subscribe becomes subscriptions/listen." src="https://raw.githubusercontent.com/efaimo-ai/mcp-stateless-migration/main/assets/diagram-603ad85d8b-light.png" width="729">
+</picture>
+
+<details>
+<summary>Mermaid source</summary>
+
+```text
 flowchart LR
+    accDescr: What moves in the stateless revision of 2026-07-28. initialize and Mcp-Session-Id give way to no handshake and server/discover. Sampling, Roots and Logging move to the provider API, tool arguments and stderr. elicitation/create becomes MRTR with resultType input_required. ping and Last-Event-ID are removed. resources/subscribe becomes subscriptions/listen.
     subgraph OLD["before 2026-07-28"]
         A1["initialize<br/>Mcp-Session-Id"]
         A2["Sampling, Roots, Logging"]
@@ -75,6 +84,8 @@ flowchart LR
     A4 --> B4
     A5 --> B5
 ```
+
+</details>
 
 Thirteen changes in total. Two of them have no readiness rule behind them and
 have to be checked by hand; the skill says which two where an agent will read it.
@@ -194,8 +205,17 @@ A skill is not free just because it is markdown. Its frontmatter is loaded at
 the start of every session for every skill you have installed, whether or not it
 ever fires.
 
-```mermaid
-flowchart LR
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/efaimo-ai/mcp-stateless-migration/main/assets/diagram-4e1d0ddaf6-dark.png">
+  <img alt="Installing puts SKILL.md and references/ in .claude/skills/mcp-stateless-migration/. The frontmatter enters your context window in every session, the body only when the skill triggers, and the references only if the agent reads them." src="https://raw.githubusercontent.com/efaimo-ai/mcp-stateless-migration/main/assets/diagram-4e1d0ddaf6-light.png" width="756">
+</picture>
+
+<details>
+<summary>Mermaid source</summary>
+
+```text
+flowchart TD
+    accDescr: Installing puts SKILL.md and references/ in .claude/skills/mcp-stateless-migration/. The frontmatter enters your context window in every session, the body only when the skill triggers, and the references only if the agent reads them.
     N["npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration"] --> D[/".claude/skills/mcp-stateless-migration/"/]
     D --> M["frontmatter<br/><b>every session, always</b>"]
     D --> B["SKILL.md body<br/><i>only when it triggers</i>"]
@@ -208,6 +228,8 @@ flowchart LR
     class M always;
     class B,R lazy;
 ```
+
+</details>
 
 In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.6.0, 2026-11-02):
 **104 tokens always resident**, 1,517 when it triggers, 3,690 across 3 reference files if the agent reads to the end.
@@ -231,8 +253,17 @@ Every skill in this set is about a report that was true about the wrong thing.
 | **`mcp-stateless-migration`** | a server said ok | which revision it speaks |
 | [`efaimo`](https://github.com/efaimo-ai/efaimo) | a tool said A(100) | what a grade certifies, and what it costs |
 
-```mermaid
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/efaimo-ai/mcp-stateless-migration/main/assets/diagram-6a4d757ce8-dark.png">
+  <img alt="Every skill in the set and the efaimo CLI, with an edge for each handoff between two of them. mcp-stateless-migration is highlighted." src="https://raw.githubusercontent.com/efaimo-ai/mcp-stateless-migration/main/assets/diagram-6a4d757ce8-light.png" width="758">
+</picture>
+
+<details>
+<summary>Mermaid source</summary>
+
+```text
 graph TD
+    accDescr: Every skill in the set and the efaimo CLI, with an edge for each handoff between two of them. mcp-stateless-migration is highlighted.
     red_before_green["red-before-green"]
     denominator["denominator"]
     read_it_back["read-it-back"]
@@ -257,6 +288,8 @@ graph TD
     classDef self fill:#0b728533,stroke:#0b7285,stroke-width:2px;
     class mcp_stateless_migration self;
 ```
+
+</details>
 
 Each edge is a real handoff, not a category: the reason one skill points at
 another is written into it at [efaimo.com/skills](https://efaimo.com/skills), and
