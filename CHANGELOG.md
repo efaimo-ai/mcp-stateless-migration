@@ -4,11 +4,11 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project uses
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [0.1.1] - 2026-11-16
 
 ### Changed
 
-- **Commands pin `efaimo@0.6.2`** _(unreleased)_, two efaimo releases newer
+- **Commands pin `efaimo@0.6.2`**, two efaimo releases newer
   than the pin in 0.1.0. Between them they mask keys in the `check --mcp`
   output (in a URL's query or username, or after `Bearer`), end a stdio server
   whose handshake fails instead of leaving it running, and keep what a working
@@ -69,4 +69,5 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
 - The package version and the version in `SKILL.md` frontmatter are one
   number, pinned by a test.
 
+[0.1.1]: https://github.com/efaimo-ai/mcp-stateless-migration/releases/tag/v0.1.1
 [0.1.0]: https://github.com/efaimo-ai/mcp-stateless-migration/releases/tag/v0.1.0
