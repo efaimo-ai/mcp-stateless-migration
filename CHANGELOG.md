@@ -4,20 +4,17 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project uses
 [Semantic Versioning](https://semver.org/).
 
-## [Unreleased]
+## [0.1.0] - 2026-11-16
 
-> **Not published yet.** This entry describes what is on `main` and is
-> dated when it ships. The first publish of `mcp-stateless-migration` cannot carry provenance:
-> npm's trusted publishing is configured from an existing package's settings
-> page, so it cannot create a package that has never been published, and the
-> authenticated session that can create one cannot mint an OIDC attestation.
-> From the version after that the release workflow owns it and every release
-> carries SLSA provenance naming the commit that built it. Install it from the
-> repository in the meantime; the README carries the command.
+> **Published without provenance.** This is the first version of `mcp-stateless-migration` on
+> npm, and it came from an authenticated session: npm's trusted publishing is
+> configured from an existing package's settings page, so it cannot create a
+> package that has never been published. From the next version the release
+> workflow publishes it, with SLSA provenance naming the commit that built it.
 
 ### Added
 
-- **The skill is installable.** `npx -y --allow-git=all github:efaimo-ai/mcp-stateless-migration` copies `SKILL.md` and its
+- **The skill is installable.** `npx mcp-stateless-migration` copies `SKILL.md` and its
   `references/` into `./.claude/skills/mcp-stateless-migration/`, with `--global`, `--dir`,
   `--check`, `--print`, `--uninstall` and `--force`. The installer reads every
   byte back after writing it and fails if what landed is not what it wrote, and
@@ -62,4 +59,4 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
 - The package version and the version in `SKILL.md` frontmatter are one
   number, pinned by a test.
 
-[Unreleased]: https://github.com/efaimo-ai/mcp-stateless-migration/commits/main
+[0.1.0]: https://github.com/efaimo-ai/mcp-stateless-migration/releases/tag/v0.1.0
