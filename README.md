@@ -246,7 +246,7 @@ Every skill in this set is about a report that was true about the wrong thing.
 |---|---|---|
 | [`red-before-green`](https://github.com/efaimo-ai/red-before-green) | a check said clean | whether it ran at all |
 | [`denominator`](https://github.com/efaimo-ai/denominator) | a check said clean | how much of the world it saw |
-| [`read-it-back`](https://github.com/efaimo-ai/read-back) | a write said done | whether it applied |
+| [`read-it-back`](https://github.com/efaimo-ai/read-it-back) | a write said done | whether it applied |
 | [`claim-sweep`](https://github.com/efaimo-ai/claim-sweep) | a change said done | everything else still asserting the old value |
 | [`unreleased-guard`](https://github.com/efaimo-ai/unreleased-guard) | a document said true | which version it is true of |
 | [`honest-chart`](https://github.com/efaimo-ai/honest-chart) | a picture said the data | whether its geometry is proportional |
