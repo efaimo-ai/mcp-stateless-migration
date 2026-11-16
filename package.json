@@ -1,6 +1,6 @@
 {
   "name": "mcp-stateless-migration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Migrate an MCP server to the stateless MCP protocol revision 2026-07-28, or make it serve both 2026-07-28 and 2025-11-25 clients.",
   "type": "module",
   "license": "Apache-2.0",

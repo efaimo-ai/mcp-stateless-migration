@@ -3,7 +3,7 @@ name: mcp-stateless-migration
 description: Migrate an MCP server to the stateless MCP protocol revision 2026-07-28, or make it serve both 2026-07-28 and 2025-11-25 clients. Use when an MCP server still depends on initialize, Mcp-Session-Id, server-initiated sampling/createMessage, roots/list or elicitation/create, logging/setLevel, MCP ping or Last-Event-ID resumption; when moving an MCP server to SDK v2 (@modelcontextprotocol/server, Python mcp 2.x, go-sdk Stateless, rmcp 3); when asked about server/discover, resultType, ttlMs, cacheScope, requestState, subscriptions/listen or Multi Round-Trip Requests; or when an MCP server fails against a client that negotiates 2026-07-28. Not for sessions, pings or SSE outside MCP.
 license: Apache-2.0
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   homepage: "https://efaimo.com"
   verified_against: "2026-11-16"
 ---
