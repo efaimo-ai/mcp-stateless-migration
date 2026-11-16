@@ -129,8 +129,8 @@ Audited by [efaimo](https://github.com/efaimo-ai/efaimo), which is the same
 tool this skill tells you to run:
 
 ```
-$ npx efaimo@0.5.0 check --skill ./mcp-stateless-migration
-efaimo v0.5.0
+$ npx efaimo@0.6.1 check --skill ./mcp-stateless-migration
+efaimo v0.6.1
 check skill  mcp-stateless-migration
 grade A (100)   0 errors  0 warnings  0 info
 
@@ -138,35 +138,33 @@ grade A (100)   0 errors  0 warnings  0 info
 
 rules: https://github.com/efaimo-ai/efaimo/blob/main/docs/RULES.md
 
-$ npx efaimo@0.5.0 weigh ./mcp-stateless-migration
-efaimo v0.5.0
+$ npx efaimo@0.6.1 weigh ./mcp-stateless-migration
+efaimo v0.6.1
   skill                        metadata      body  lines  refs
-  mcp-stateless-migration           104     1,517    120  3 files 3,690
+  mcp-stateless-migration           186     3,020    212  4 files 6,167
 
-totals: metadata 104 (always loaded) | body 1,517 (on trigger) | referenced 3,690 (on demand)
+totals: metadata 186 (always loaded) | body 3,020 (on trigger) | referenced 6,167 (on demand)
 
 note: metadata loads at session start for every installed skill; body loads on trigger; referenced files load on demand
 note: token counts are o200k_base estimates (see docs/METHODOLOGY.md)
 ```
 
-Captured verbatim from `efaimo@0.5.0` on 2026-09-04. Two edits: the
+Captured verbatim from `efaimo@0.6.1` on 2026-11-16. Two edits: the
 `weigh skills` header line is removed, because it prints this machine's
 absolute path, and the two command lines name the version that ran
-(`efaimo@0.5.0`) so that they reproduce this output rather than whatever
+(`efaimo@0.6.1`) so that they reproduce this output rather than whatever
 `latest` is when you read this. (Until 2026-08-02 this section quoted a reference count of
 3,305 from the commit before `references/changes.md` gained its thirteenth
 change: the numbers had outlived the measurement by one commit, in the README
 of a brand whose product exists to catch exactly that.)
 
-104 tokens sit in your context at all times, which is what every installed
-skill costs you whether or not you use it. The 1,517 token body loads only when
-the skill triggers, and the 3,690 tokens of reference material only when it is
-actually read. Those numbers measure the skill as it stood on 2026-09-04, not
-the commit you are reading: the text was revised on 2026-11-16 (the dual-era
-step, the SDK entry points, a fourth reference file), so the body and the
-references are larger now, and this capture is retaken when that revision is
-published. Re-run both commands yourself, which is the point of quoting them
-at all.
+186 tokens sit in your context at all times, which is what every installed
+skill costs you whether or not you use it. The 3,020 token body loads only when
+the skill triggers, and the 6,167 tokens of reference material only when it is
+actually read. This is the text revised on 2026-11-16 (the dual-era step, the
+SDK entry points, a fourth reference file) and published that day; the capture
+that stood here before measured the 2026-09-04 text. Re-run both commands
+yourself, which is the point of quoting them at all.
 
 (The body number read 1,428 here until 2026-09-05, three lines under a table
 that said 1,517 and one paragraph under the note about this exact thing having
@@ -215,8 +213,8 @@ flowchart TD
 
 </details>
 
-In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.6.0, 2026-11-02):
-**104 tokens always resident**, 1,517 when it triggers, 3,690 across 3 reference files if the agent reads to the end.
+In this skill's case, measured by [efaimo](https://github.com/efaimo-ai/efaimo) `weigh` (v0.6.1, 2026-11-16):
+**186 tokens always resident**, 3,020 when it triggers, 6,167 across 4 reference files if the agent reads to the end.
 
 <!-- /generated:pipeline -->
 

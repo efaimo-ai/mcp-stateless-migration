@@ -4,6 +4,15 @@ All notable changes to mcp-stateless-migration are documented here. Format follo
 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project uses
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- **Commands name `efaimo@0.6.1`** _(unreleased)_, the release that keeps a key
+  in a URL out of the `check --mcp` output and ends a stdio server whose
+  handshake fails instead of leaving it running. `npx mcp-stateless-migration`
+  still installs 0.1.0, whose commands name the release before it.
+
 ## [0.1.0] - 2026-11-16
 
 > **Published without provenance.** This is the first version of `mcp-stateless-migration` on
